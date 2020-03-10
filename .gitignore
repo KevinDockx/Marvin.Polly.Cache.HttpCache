@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Marvin.Polly.Cache.HttpCache.Api/Properties/launchSettings.json
