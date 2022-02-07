@@ -1,13 +1,18 @@
 ﻿using Marvin.Polly.Cache.HttpCache.Contexts;
 using Marvin.Polly.Cache.HttpCache.Domain;
-using Polly; 
+using Polly;
 
 namespace Marvin.Polly.Cache.HttpCache.Extensions
 {
-    public static class HttpRequestMessageExtensions
-    {
-        public static void SetPolicyExecutionContextForHttpCache(this HttpRequestMessage request)
+    public static class ContextExtensions
+    { 
+        public static void SetHttpCacheContext(this Context context, HttpRequestMessage request)
         {
+            if (context is null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+             
             if (request is null)
             {
                 throw new ArgumentNullException(nameof(request));
@@ -26,13 +31,8 @@ namespace Marvin.Polly.Cache.HttpCache.Extensions
             // create the HttpCacheContext
             var httpCacheContext = new HttpCacheContext(primaryCacheKey);
 
-            // create a policy context, add the HttpCacheContext and set it
-            var context = new Context
-            {
-                { "HttpCacheContext", httpCacheContext }
-            };  
-
-            request.SetPolicyExecutionContext(context); 
+            // Add the HttpCacheContext to the context            
+            context.Add("HttpCacheContext", httpCacheContext);
         }
     }
 }

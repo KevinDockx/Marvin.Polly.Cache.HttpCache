@@ -2,13 +2,14 @@
 
 namespace Marvin.Polly.Cache.HttpCache.Contexts
 {
-    public class HttpCacheContext
+    internal class HttpCacheContext
     {
-        private readonly PrimaryCacheKey _primaryCacheKey;
+        public PrimaryCacheKey PrimaryCacheKey { get; private set; }
 
+        // TODO secondary keys (?)
         public HttpCacheContext(PrimaryCacheKey primaryCacheKey)
         {
-            _primaryCacheKey = primaryCacheKey;
+            PrimaryCacheKey = primaryCacheKey;
         }
     }
 }

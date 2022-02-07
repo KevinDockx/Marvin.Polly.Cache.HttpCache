@@ -10,8 +10,9 @@ namespace Marvin.Polly.Cache.HttpCache.Strategies
     public class TimeToLiveStrategy : ITtlStrategy<HttpResponseMessage>
     {  
         public Ttl GetTtl(Context context, HttpResponseMessage result)
-        { 
-            throw new NotImplementedException();
+        {
+            // TODO implement Http cache support
+            return new Ttl(new TimeSpan(0, 10, 0));
         }
     }
 }

@@ -28,9 +28,8 @@ namespace Marvin.Polly.Cache.HttpCache.Client.Web.Controllers
             // set the context the policy can use, passing through the 
             // with which the response will be stored in the cache
             // request.SetPolicyExecutionContext(new Context("AKeyForTesting"));
-
+           
             request.SetPolicyExecutionContextForHttpCache();
-
             var response = await httpClient.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
