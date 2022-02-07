@@ -1,6 +1,5 @@
 using Polly;
-using Polly.Caching;
-using Polly.Extensions.Http;
+using Polly.Caching; 
 using Polly.Registry;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +9,8 @@ builder.Services.AddControllersWithViews();
 
 // register a cache provider
 builder.Services.AddMemoryCache();
-builder.Services.AddSingleton<Polly.Caching.IAsyncCacheProvider, Polly.Caching.Memory.MemoryCacheProvider>();
+builder.Services.AddSingleton<Polly.Caching.IAsyncCacheProvider, 
+    Polly.Caching.Memory.MemoryCacheProvider>();
 
 // register the policy registry services (and discard, don't need it here)
 _ = builder.Services.AddPolicyRegistry();
@@ -45,13 +45,25 @@ var cacheProvider = app.Services.GetService<Polly.Caching.IAsyncCacheProvider>()
 var policyRegistry = app.Services.GetService<IPolicyRegistry<string>>();  
 
 // create the cache policy
-var cachePolicy = Policy.CacheAsync<HttpResponseMessage>(
+var cachePolicy = Policy.CacheAsync(
            cacheProvider.AsyncFor<HttpResponseMessage>(), 
            TimeSpan.FromSeconds(30), 
            onCacheError: (a, b, c) => { 
-               var x = true; } );
+               var x = true;
+           } );
 
-policyRegistry.Add("CustomCachePolicy", cachePolicy);
+policyRegistry?.Add("CustomCachePolicy", cachePolicy);
+
+
+// create the cache policy
+var httpCachePolicy = Policy.CacheAsync(
+           cacheProvider.AsyncFor<HttpResponseMessage>(),
+           TimeSpan.FromSeconds(30),
+           onCacheError: (a, b, c) => {
+               var x = true;
+           });
+
+policyRegistry?.Add("CustomCachePolicy", cachePolicy);
 
 
 app.Run(); 
