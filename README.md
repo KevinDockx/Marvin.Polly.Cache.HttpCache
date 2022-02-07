@@ -1,4 +1,4 @@
-#Http Cache Support for Polly
+# HTTP Cache Support for Polly
 
 Marvin.Polly.Cache.HttpCache is an extension for Polly that enables client-side caching of HTTP response messages.  The implementation adheres to the HTTP Caching standard as defined by RFC7234 (https://www.rfc-editor.org/rfc/rfc7234.txt).  
 
