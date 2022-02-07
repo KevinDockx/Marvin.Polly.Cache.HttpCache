@@ -7,7 +7,7 @@ namespace Marvin.Polly.Cache.HttpCache.Strategies
     /// A strategy for defining the cache key which keeps the HTTP method, target URI 
     /// and, potentially, headers into account
     /// </summary>
-    public class HttpCacheCacheKeyStrategy : ICacheKeyStrategy
+    public class CacheKeyStrategy : ICacheKeyStrategy
     {
         public string GetCacheKey(Context context)
         { 
