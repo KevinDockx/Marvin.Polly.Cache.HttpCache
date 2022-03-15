@@ -12,7 +12,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<Polly.Caching.IAsyncCacheProvider, 
     Polly.Caching.Memory.MemoryCacheProvider>();
 
-// register the HTTP Cache enablign strategies
+// register the HTTP Cache enabling strategies
 builder.Services.AddSingleton<Polly.Caching.ICacheKeyStrategy,
     Marvin.Polly.Cache.HttpCache.Strategies.CacheKeyStrategy>();
 builder.Services.AddSingleton<Polly.Caching.ITtlStrategy<HttpResponseMessage>,
@@ -26,7 +26,8 @@ _ = builder.Services.AddPolicyRegistry();
 builder.Services.AddHttpClient("ClientWithCache") 
         .AddPolicyHandlerFromRegistry((policyRegistry, httpRequestMessage) =>
         {
-            var policy = policyRegistry.Get<IAsyncPolicy<HttpResponseMessage>>("HttpCachePolicy");
+            var policy = policyRegistry
+                .Get<IAsyncPolicy<HttpResponseMessage>>("HttpCachePolicy");
             return policy;
         });
 
@@ -70,12 +71,11 @@ var httpCacheTimeToLiveStrategy = app.Services.GetService<ITtlStrategy<HttpRespo
 var httpCachePolicy = Policy.CacheAsync(
            cacheProvider.AsyncFor<HttpResponseMessage>(),
            TimeSpan.FromSeconds(30),
-           cacheKeyStrategy: httpCacheKeyStrategy,
+           cacheKeyStrategy: httpCacheKeyStrategy, 
            onCacheError: (a, b, c) => {
                var x = true;
            });
 
-policyRegistry?.Add("HttpCachePolicy", httpCachePolicy);
-
+policyRegistry?.Add("HttpCachePolicy", httpCachePolicy); 
 
 app.Run(); 

@@ -11,7 +11,12 @@ namespace Marvin.Polly.Cache.HttpCache.Strategies
     {  
         public Ttl GetTtl(Context context, HttpResponseMessage result)
         {
+
+            //    result.Headers.CacheControl
             // TODO implement Http cache support
+
+            // Use Timespan.Zero to avoid caching
+            // (as per https://github.com/App-vNext/Polly/wiki/Cache#usage-recommendations)
             return new Ttl(new TimeSpan(0, 10, 0));
         }
     }

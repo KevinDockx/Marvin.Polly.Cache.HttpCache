@@ -11,11 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Server", "03 - Server"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Library", "01 - Library", "{667D8328-11F8-404C-87A6-5903CD4626CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvin.Polly.Cache.HttpCache.Api", "Marvin.Polly.Cache.HttpCache.Api\Marvin.Polly.Cache.HttpCache.Api.csproj", "{1879A1A1-B30B-49F1-BD7C-0DC49525D1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marvin.Polly.Cache.HttpCache.Api", "Marvin.Polly.Cache.HttpCache.Api\Marvin.Polly.Cache.HttpCache.Api.csproj", "{1879A1A1-B30B-49F1-BD7C-0DC49525D1C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvin.Polly.Cache.HttpCache.Client", "Marvin.Polly.Cache.HttpCache.Client\Marvin.Polly.Cache.HttpCache.Client.csproj", "{226F27CE-469B-4A22-A9AA-0CD163C25CE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marvin.Polly.Cache.HttpCache.Client", "Marvin.Polly.Cache.HttpCache.Client\Marvin.Polly.Cache.HttpCache.Client.csproj", "{226F27CE-469B-4A22-A9AA-0CD163C25CE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvin.Polly.Cache.HttpCache.Client.Web", "Marvin.Polly.Cache.HttpCache.Client.Web\Marvin.Polly.Cache.HttpCache.Client.Web.csproj", "{F3DE5D73-3559-4E15-9565-39734AFF3649}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marvin.Polly.Cache.HttpCache.Client.Web", "Marvin.Polly.Cache.HttpCache.Client.Web\Marvin.Polly.Cache.HttpCache.Client.Web.csproj", "{F3DE5D73-3559-4E15-9565-39734AFF3649}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Test", "04 - Test", "{28162BF7-89FB-4F41-B540-CC6CF1466294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marvin.Polly.Cache.HttpCache.Test", "Marvin.Polly.Cache.HttpCache.Test\Marvin.Polly.Cache.HttpCache.Test.csproj", "{6926BF6B-8965-4186-8F13-777F17CC026A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{F3DE5D73-3559-4E15-9565-39734AFF3649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DE5D73-3559-4E15-9565-39734AFF3649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DE5D73-3559-4E15-9565-39734AFF3649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6926BF6B-8965-4186-8F13-777F17CC026A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6926BF6B-8965-4186-8F13-777F17CC026A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6926BF6B-8965-4186-8F13-777F17CC026A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6926BF6B-8965-4186-8F13-777F17CC026A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{1879A1A1-B30B-49F1-BD7C-0DC49525D1C3} = {F0676091-BE2D-4156-8AE9-686CAD07E961}
 		{226F27CE-469B-4A22-A9AA-0CD163C25CE3} = {E7CFC550-BB23-4584-A6F1-2517B6767A45}
 		{F3DE5D73-3559-4E15-9565-39734AFF3649} = {E7CFC550-BB23-4584-A6F1-2517B6767A45}
+		{6926BF6B-8965-4186-8F13-777F17CC026A} = {28162BF7-89FB-4F41-B540-CC6CF1466294}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A2A5760-4BC0-4FA2-95EE-5C37CEB9CB41}
