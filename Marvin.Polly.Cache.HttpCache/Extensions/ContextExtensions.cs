@@ -37,6 +37,22 @@ namespace Marvin.Polly.Cache.HttpCache.Extensions
 
         public static string GetHttpCacheKey(this Context context)
         {
+            var httpCacheContext = ValidateContext(context);
+
+            // for now, use just the primary key as cache key 
+            return httpCacheContext.PrimaryCacheKey.ToString();
+        }
+
+        public static PrimaryCacheKey GetPrimaryCacheKey(this Context context)
+        {
+            var httpCacheContext = ValidateContext(context);
+
+            // return the primary cache key
+            return httpCacheContext.PrimaryCacheKey;
+        }
+
+        private static HttpCacheContext ValidateContext(Context context)
+        {
             if (context is null)
             {
                 throw new ArgumentNullException(nameof(context));
@@ -56,9 +72,8 @@ namespace Marvin.Polly.Cache.HttpCache.Extensions
                 throw new InvalidCastException(
                     $"HttpCacheContext value on Context dictionary must be of type {typeof(HttpCacheContext)}");
             }
-             
-            // for now, use just the primary key as cache key 
-            return httpCacheContext.PrimaryCacheKey.ToString();
+
+            return httpCacheContext;
         }
     }
 }
